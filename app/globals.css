@@ -12,5 +12,30 @@ html {
 }
 
 body {
-  background-color: rgb(46, 42, 42);
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: rgb(66, 64, 64);
+}
+
+header {
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+main {
+  width: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  top: 5rem;
+  left: 0;
 }

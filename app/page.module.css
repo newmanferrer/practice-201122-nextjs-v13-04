@@ -3,6 +3,7 @@
 }
 
 .container h1 {
+  text-align: center;
   color: white;
   font-family: var(--font-rubik-distressed);
   font-size: 3rem;
