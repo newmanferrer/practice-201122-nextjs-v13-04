@@ -11,8 +11,8 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '',
-        pathname: '/api/products'
+        port: '3000',
+        pathname: '/images/**'
       }
     ]
   }
