@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  grid-area: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1 {
+  text-align: center;
+  color: white;
+  font-family: var(--font-rubik-distressed);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.25rem;
+}
