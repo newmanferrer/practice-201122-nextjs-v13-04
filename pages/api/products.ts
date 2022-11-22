@@ -6,18 +6,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<IProdu
   res.status(200).json([
     {
       id: 0,
-      name: 'Octocat Figurine',
-      price: 100,
-      stock: 73,
-      picture: 'http://localhost:3000/images/small-octocat-882x882.webp',
-      brand_name: 'GitHub',
-      brand_logo: 'http://localhost:3000/images/github-logo.webp',
-      description:
-        'For years, the Octocat has been stuck in the realm of two dimensions—but no more! Now she’s crawling off your laptop and onto your desk as a 5" vinyl figurine.'
-    },
-    {
-      id: 1,
-      name: 'Gold Cap - Limited Edition',
+      name: 'Gold Cap Limited Edition',
       price: 29.99,
       stock: 73,
       picture: 'http://localhost:3000/images/octo-cap-gold-882x882.webp',
@@ -27,8 +16,20 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<IProdu
         '100% Washed Chino Cotton Twill Unstructured Cap with a tone-on-tone invertocat for a simple and classy hat to cap off any wardrobe choice.'
     },
     {
+      id: 1,
+      name: 'Octocat Figurine',
+      price: 99.99,
+      stock: 73,
+      picture: 'http://localhost:3000/images/small-octocat-882x882.webp',
+      brand_name: 'GitHub',
+      brand_logo: 'http://localhost:3000/images/github-logo.webp',
+      description:
+        'For years, the Octocat has been stuck in the realm of two dimensions—but no more! Now she’s crawling off your laptop and onto your desk as a 5" vinyl figurine.'
+    },
+
+    {
       id: 2,
-      name: 'Black Cap - Limited Edition',
+      name: 'Black Cap Limited Edition',
       price: 39.99,
       stock: 73,
       picture: 'http://localhost:3000/images/octo-cap-black-882x882.webp',
@@ -40,7 +41,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<IProdu
     {
       id: 3,
       name: 'Sticker Packs',
-      price: 5.0,
+      price: 5.99,
       stock: 73,
       picture: 'http://localhost:3000/images/stickers-packs-sampler-882x882.webp',
       brand_name: 'GitHub',
@@ -62,9 +63,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<IProdu
     {
       id: 5,
       name: 'Octocat Laptop Decals',
-      price: 5,
+      price: 5.15,
       stock: 73,
-      picture: 'http://localhost:3000/imges/octocat-laptop-decals-882x882.webp',
+      picture: 'http://localhost:3000/images/octocat-laptop-decals-882x882.webp',
       brand_name: 'GitHub',
       brand_logo: 'http://localhost:3000/images/github-logo.webp',
       description:
