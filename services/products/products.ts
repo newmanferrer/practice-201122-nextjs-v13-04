@@ -1,3 +1,4 @@
+import { convertToPath } from '../../lib'
 import { IProduct } from '../../models'
 
 const BASE_URL = 'http://localhost:3000/api/products'
@@ -39,7 +40,22 @@ export const getProductsIncrement = async (): Promise<IProduct[]> => {
 //* *************************************************************************************
 
 //* *************************************************************************************
-//* 2.- Products Latest
+//* 2.- One Specific Product
+//* *************************************************************************************
+//* -------------------------------------------------------------------------------------
+//* 2.1.-  Static
+//* -------------------------------------------------------------------------------------
+export const getProductByIdStatic = async (productId: number): Promise<IProduct | undefined> => {
+  const products = await getProductsStatic()
+  const product = products.find(product => product.id === productId)
+
+  return product
+}
+//* -------------------------------------------------------------------------------------
+//* *************************************************************************************
+
+//* *************************************************************************************
+//* 3.- Products Latest
 //* *************************************************************************************
 export const getProductsLatest = async (): Promise<IProduct[]> => {
   const products = await getProductsIncrement()
