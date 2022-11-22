@@ -17,3 +17,19 @@
   font-weight: 400;
   letter-spacing: 0.25rem;
 }
+
+.container section {
+  width: 100%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container section {
+    flex-flow: row wrap;
+  }
+}
