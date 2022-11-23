@@ -1,4 +1,4 @@
-import { convertProductNameToPath } from '../../lib'
+import { createFriendlyUrl } from '../../lib'
 import { IProduct } from '../../models'
 
 const BASE_URL = 'http://localhost:3000/api/products'
@@ -45,11 +45,9 @@ export const getProductsIncrement = async (): Promise<IProduct[]> => {
 //* -------------------------------------------------------------------------------------
 //* 2.1.-  Static
 //* -------------------------------------------------------------------------------------
-export const getProductByIdStatic = async (productName: string): Promise<IProduct | undefined> => {
+export const getProductByIdStatic = async (productId: string): Promise<IProduct | undefined> => {
   const products = await getProductsStatic()
-  const product = products.find(
-    product => `${convertProductNameToPath(product.name)}-${product.id}` === productName
-  )
+  const product = products.find(product => `${createFriendlyUrl(product)}` === productId)
 
   return product
 }
