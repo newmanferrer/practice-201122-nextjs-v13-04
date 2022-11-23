@@ -1,1 +1,1 @@
-export { convertToPath } from './utils/utils'
+export { convertProductNameToPath, createFriendlyUrl } from './utils/utils'
