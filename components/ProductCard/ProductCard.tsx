@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { createFriendlyUrl } from '../../lib'
 import { IProduct } from '../../models'
 import styles from './ProductCard.module.css'
 
@@ -14,7 +15,7 @@ export const ProductCard = ({ product }: IProductCardProps) => {
       <h2>{product.name}</h2>
       <h3>${product.price}</h3>
       <h3>quantity: {product.stock}</h3>
-      <Link href={`/store/${product.id}`}>View details</Link>
+      <Link href={`/store/${createFriendlyUrl(product)}`}>View details</Link>
       <button>Add to Cart</button>
     </article>
   )
