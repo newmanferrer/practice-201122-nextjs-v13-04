@@ -9,10 +9,10 @@ interface IProductPageProps {
 }
 
 export default async function ProductPage({ params }: IProductPageProps) {
-  const productId = +params.productId
+  const productId = params.productId
   const product = await getProductByIdStatic(productId)
 
-  if (!product) throw new Error(`Product whit id "${productId}" not found!`)
+  if (!product) throw new Error(`Product "${productId}" not found!`)
 
   return (
     <div className={styles.container}>
