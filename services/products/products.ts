@@ -1,4 +1,4 @@
-import { convertToPath } from '../../lib'
+import { convertProductNameToPath } from '../../lib'
 import { IProduct } from '../../models'
 
 const BASE_URL = 'http://localhost:3000/api/products'
@@ -22,7 +22,7 @@ export const getProductsStatic = async (): Promise<IProduct[]> => {
 //* -------------------------------------------------------------------------------------
 //* It is equivalent to the old "getServerSideProps()" in Nextjs 12
 //* -------------------------------------------------------------------------------------
-export const getProductsStaticDynamic = async (): Promise<IProduct[]> => {
+export const getProductsDynamic = async (): Promise<IProduct[]> => {
   return await fetch(BASE_URL, { cache: 'no-store' }).then(response => response.json())
 }
 //* -------------------------------------------------------------------------------------
@@ -45,9 +45,11 @@ export const getProductsIncrement = async (): Promise<IProduct[]> => {
 //* -------------------------------------------------------------------------------------
 //* 2.1.-  Static
 //* -------------------------------------------------------------------------------------
-export const getProductByIdStatic = async (productId: number): Promise<IProduct | undefined> => {
+export const getProductByIdStatic = async (productName: string): Promise<IProduct | undefined> => {
   const products = await getProductsStatic()
-  const product = products.find(product => product.id === productId)
+  const product = products.find(
+    product => `${convertProductNameToPath(product.name)}-${product.id}` === productName
+  )
 
   return product
 }

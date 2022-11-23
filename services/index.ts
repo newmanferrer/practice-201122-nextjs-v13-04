@@ -1,6 +1,6 @@
 export {
   getProductsStatic,
-  getProductsStaticDynamic,
+  getProductsDynamic,
   getProductsIncrement,
   getProductByIdStatic,
   getProductsLatest
