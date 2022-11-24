@@ -1,4 +1,4 @@
-import { Navigation } from '../components'
+import { Navigation, ShoppingCart } from '../components'
 import './globals.css'
 import { font_montserrat, font_rubik_distressed, font_roboto, font_dancing_script } from '../fonts'
 
@@ -17,7 +17,11 @@ export default function RootLayout({ children }: IRootLayoutProps) {
         <header>
           <Navigation />
         </header>
-        <main>{children}</main>
+
+        <main>
+          {children}
+          <ShoppingCart />
+        </main>
       </body>
     </html>
   )
