@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useShoppingCartContext } from '../../contexts'
 import styles from './Navigation.module.css'
 
 interface ILink {
@@ -22,15 +25,12 @@ const links: ILink[] = [
     id: 3,
     label: 'FAQ',
     route: '/faq'
-  },
-  {
-    id: 4,
-    label: 'Cart (0)',
-    route: '#'
   }
 ]
 
 export function Navigation() {
+  const { openCart, getNumberOfProducts } = useShoppingCartContext()
+
   return (
     <nav className={styles.nav}>
       <ul>
@@ -40,6 +40,7 @@ export function Navigation() {
           </li>
         ))}
       </ul>
+      <button onClick={openCart}>{`Cart (${getNumberOfProducts()})`}</button>
     </nav>
   )
 }

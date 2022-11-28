@@ -38,3 +38,25 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+.nav button {
+  margin-left: 20%;
+  padding: 0.25rem 0.5rem;
+
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(63, 62, 126);
+  outline: none;
+
+  transition: all 0.5s ease-in-out;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.nav button:hover {
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  background-color: rgb(63, 62, 126);
+}
