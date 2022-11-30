@@ -58,7 +58,7 @@ export const getProductByIdStatic = async (productId: string): Promise<IProduct 
 //* 3.- Products Latest
 //* *************************************************************************************
 export const getProductsLatest = async (): Promise<IProduct[]> => {
-  const products = await getProductsIncrement()
-  return products.slice(0, 3)
+  const products = (await getProductsIncrement()).slice(0, 3)
+  return products
 }
 //* *************************************************************************************
