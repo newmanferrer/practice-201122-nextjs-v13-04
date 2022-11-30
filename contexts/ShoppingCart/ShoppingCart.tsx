@@ -59,20 +59,10 @@ const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) => {
     const tempCart = [...cart]
     const found = tempCart.find(productInCart => productInCart.id === product.id)
 
-    if (found) {
+    if (found && found.quantity) {
       found.quantity++
     } else {
-      const productToCart = {
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        quantity: 1,
-        picture: product.picture,
-        brand_name: product.brand_name,
-        brand_logo: product.brand_logo,
-        description: product.description
-      }
-
+      const productToCart = { ...product, quantity: 1 }
       tempCart.push(productToCart)
     }
 
