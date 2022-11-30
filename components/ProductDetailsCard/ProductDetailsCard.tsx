@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { IProduct } from '../../models'
+import { AddToCartButton } from '../'
 import styles from './ProductDetailsCard.module.css'
 
 interface IProductDetailsCardProps {
@@ -17,7 +18,7 @@ export const ProductDetailsCard = ({ product }: IProductDetailsCardProps) => {
       <h3>brand: {product.brand_name}</h3>
       <p>{product.description}</p>
       <Link href='/store'>Go to products</Link>
-      <button>Add to Cart</button>
+      <AddToCartButton product={product} />
     </article>
   )
 }
