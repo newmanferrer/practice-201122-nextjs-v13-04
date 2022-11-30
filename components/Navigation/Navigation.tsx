@@ -29,7 +29,7 @@ const links: ILink[] = [
 ]
 
 export function Navigation() {
-  const { openCart, getNumberOfProducts } = useShoppingCartContext()
+  const { toggleCart, getNumberOfProducts } = useShoppingCartContext()
 
   return (
     <nav className={styles.nav}>
@@ -40,7 +40,7 @@ export function Navigation() {
           </li>
         ))}
       </ul>
-      <button onClick={openCart}>{`Cart (${getNumberOfProducts()})`}</button>
+      <button onClick={toggleCart}>{`Cart (${getNumberOfProducts()})`}</button>
     </nav>
   )
 }
