@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import { useShoppingCartContext } from '../../contexts'
-import { CartProductCard } from '../'
 import styles from './ShoppingCart.module.css'
 
 export const ShoppingCart = () => {
@@ -32,16 +31,22 @@ export const ShoppingCart = () => {
           <h3>Your Products</h3>
           <>
             {cart.map(product => (
-              <article className={styles.product} key={product.id}>
-                <div>
+              <article className={styles.article} key={product.id}>
+                <div className={styles.articleImage}>
                   <Image src={product.picture} alt={product.name} width={70} height={70} />
                 </div>
 
-                <div>
+                <div className={styles.articleInfo}>
                   <h4>{product.name}</h4>
                   <p>${product.price}</p>
                   <p>{product.quantity} units</p>
                   <p>SubTotal: ${(product.price * product.quantity).toFixed(2)}</p>
+                </div>
+
+                <div className={styles.articleButtons}>
+                  <button>-1</button>
+                  <button>Delete</button>
+                  <button>+1</button>
                 </div>
               </article>
             ))}
