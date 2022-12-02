@@ -23,6 +23,9 @@ interface IShoppingCartContextValues {
   openCart: () => void
   closeCart: () => void
   addProductToCart: (product: IProduct) => void
+  removeProductToCart: (productId: number) => void
+  quantityAddOne: (productId: number) => void
+  quantityRemoveOne: (productId: number) => void
   getNumberOfProducts: () => void
 }
 //* ---------------------------------------------------------------------------
@@ -69,6 +72,53 @@ const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) => {
     setCart([...tempCart])
   }
 
+  const removeProductToCart = (productId: number) => {
+    const productToRemove = cart.find(product => product.id === productId)
+    let newCart = []
+
+    if (productToRemove) {
+      newCart = cart.filter(product => product.id !== productId)
+      setCart(newCart)
+    } else {
+      throw new Error(`product id "${productId}", not found!`)
+    }
+  }
+
+  const quantityAddOne = (productId: number) => {
+    const productToAdd = cart.find(product => product.id === productId)
+    let newCart = []
+
+    if (productToAdd) {
+      newCart = cart.map(product =>
+        product.id === productId ? { ...product, quantity: product.quantity + 1 } : product
+      )
+      setCart(newCart)
+    } else {
+      throw new Error(`product id "${productId}", not found!`)
+    }
+  }
+
+  const quantityRemoveOne = (productId: number) => {
+    const productToRemove = cart.find(product => product.id === productId)
+    let newCart = []
+
+    if (productToRemove) {
+      if (productToRemove.quantity > 1) {
+        newCart = cart.map(product =>
+          product.id === productToRemove.id
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+      } else {
+        newCart = cart.filter(product => product.id !== productId)
+      }
+
+      setCart(newCart)
+    } else {
+      throw new Error(`product id "${productId}", not found!`)
+    }
+  }
+
   const getNumberOfProducts = () => {
     const total = cart.reduce((acc: number, product: ICartProduct) => acc + product.quantity, 0)
     return total
@@ -81,6 +131,9 @@ const ShoppingCartProvider = ({ children }: IShoppingCartProviderProps) => {
     openCart,
     closeCart,
     addProductToCart,
+    removeProductToCart,
+    quantityAddOne,
+    quantityRemoveOne,
     getNumberOfProducts
   }
 

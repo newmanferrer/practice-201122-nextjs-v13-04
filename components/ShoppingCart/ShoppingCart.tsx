@@ -5,7 +5,8 @@ import { useShoppingCartContext } from '../../contexts'
 import styles from './ShoppingCart.module.css'
 
 export const ShoppingCart = () => {
-  const { cart, isOpen, closeCart } = useShoppingCartContext()
+  const { cart, isOpen, closeCart, removeProductToCart, quantityAddOne, quantityRemoveOne } =
+    useShoppingCartContext()
 
   function getTotal() {
     const total = cart
@@ -44,9 +45,9 @@ export const ShoppingCart = () => {
                 </div>
 
                 <div className={styles.articleButtons}>
-                  <button>-1</button>
-                  <button>Delete</button>
-                  <button>+1</button>
+                  <button onClick={() => quantityRemoveOne(product.id)}>-1</button>
+                  <button onClick={() => removeProductToCart(product.id)}>Delete</button>
+                  <button onClick={() => quantityAddOne(product.id)}>+1</button>
                 </div>
               </article>
             ))}
